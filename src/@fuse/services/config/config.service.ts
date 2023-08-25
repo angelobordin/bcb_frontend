@@ -3,16 +3,14 @@ import { FUSE_CONFIG } from '@fuse/services/config/config.constants';
 import { merge } from 'lodash-es';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-@Injectable({providedIn: 'root'})
-export class FuseConfigService
-{
+@Injectable({ providedIn: 'root' })
+export class FuseConfigService {
     private _config: BehaviorSubject<any>;
 
     /**
      * Constructor
      */
-    constructor(@Inject(FUSE_CONFIG) config: any)
-    {
+    constructor(@Inject(FUSE_CONFIG) config: any) {
         // Private
         this._config = new BehaviorSubject(config);
     }
@@ -24,18 +22,19 @@ export class FuseConfigService
     /**
      * Setter & getter for config
      */
-    set config(value: any)
-    {
+    set config(value: any) {
+        console.log(value);
         // Merge the new config over to the current config
-        const config = merge({}, this._config.getValue(), value);
+        const config = merge({}, this._config.getValue(), {
+            layout: 'classic',
+        });
 
         // Execute the observable
         this._config.next(config);
     }
 
     // eslint-disable-next-line @typescript-eslint/member-ordering
-    get config$(): Observable<any>
-    {
+    get config$(): Observable<any> {
         return this._config.asObservable();
     }
 
@@ -46,8 +45,7 @@ export class FuseConfigService
     /**
      * Resets the config to the default
      */
-    reset(): void
-    {
+    reset(): void {
         // Set the config
         this._config.next(this.config);
     }

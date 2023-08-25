@@ -7,7 +7,6 @@ export const appRoutes: Route[] = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
     {
         path: '',
-        canActivate: [AuthGuard],
         canActivateChild: [AuthGuard],
         component: LayoutComponent,
         resolve: {
@@ -20,7 +19,8 @@ export const appRoutes: Route[] = [
             },
             {
                 path: 'customer',
-                loadChildren: () => import('app/modules/home/home.routes'),
+                loadChildren: () =>
+                    import('app/modules/customer/customer.routes'),
             },
         ],
     },

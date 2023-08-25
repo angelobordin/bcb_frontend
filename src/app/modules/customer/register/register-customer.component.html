@@ -1,0 +1,90 @@
+<form [formGroup]="form" class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="row mb-3">
+                <div class="col-12 col-md-5">
+                    <div class="form-control-group">
+                        <mat-form-field class="flex-auto col-12">
+                            <mat-label label for="cnpj" class="label">CNPJ</mat-label>
+                            <input matInput name="cnpj" id="cnpj" placeholder="CNPJ" type="text" maxlength="14"
+                                class="form-control" formControlName="cnpj" mask="00.000.000/0000-00">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-12 col-md-7">
+                    <mat-form-field class="flex-auto col-12">
+                        <mat-label label for="name" class="label">
+                            Nome
+                        </mat-label>
+                        <input matInput name="name" id="name" placeholder="Nome" type="text" class="form-control"
+                            maxlength="100'" formControlName="name">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="row mb-3">
+                <div class="col-12 col-md-5">
+                    <div class="form-control-group">
+                        <mat-form-field class="flex-auto col-12">
+                            <mat-label label for="responsible_cpf" class="label">
+                                CPF
+                            </mat-label>
+                            <input matInput name="responsible_cpf" id="responsible_cpf" placeholder="CPF" type="text"
+                                maxlength="14" class="form-control" formControlName="responsible_cpf"
+                                mask="000.000.000-00">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-12 col-md-7">
+                    <mat-form-field class="flex-auto col-12">
+                        <mat-label label for="responsible_name" class="label">
+                            Nome
+                        </mat-label>
+                        <input matInput name="responsible_name" id="responsible_name" placeholder="Nome" type="text"
+                            class="form-control" maxlength="100'" formControlName="responsible_name">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12 col-md-7">
+                    <mat-form-field class="flex-auto col-12">
+                        <mat-label label for="responsible_email" class="label">
+                            E-mail
+                        </mat-label>
+                        <input matInput name="responsible_email" id="responsible_email" placeholder="E-mail" type="text"
+                            class="form-control" maxlength="100'" formControlName="responsible_email">
+                    </mat-form-field>
+                </div>
+                <div class="col-12 col-md-5">
+                    <div class="form-control-group">
+                        <mat-form-field class="flex-auto col-12">
+                            <mat-label label for="responsible_cellphone" class="label">
+                                Celular
+                            </mat-label>
+                            <input name="responsible_cellphone" id="responsible_cellphone" placeholder="Celular"
+                                type="text" pInputText maxlength="19" class="form-control"
+                                formControlName="responsible_cellphone" mask="(00) 00000-0000" />
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-group" style="display: flex; justify-content: flex-end;">
+        <!-- <button *ngIf="this.form.value['active']" [disabled]="inAction" mat-raised-button color="warn"
+                (click)="deleteCustomer()" style="margin-right: 10px;">
+                Inativar
+            </button>
+            <button *ngIf="!this.form.value['active']" [disabled]="inAction" mat-raised-button
+                (click)="activeCustomer()" style="margin-right: 10px; background-color: green; color: white">
+                Ativar
+            </button>
+            <button [disabled]="!this.form.valid || inAction || !this.form.dirty" mat-raised-button color="primary"
+                type="submit" (click)="updateCustomer()">
+                Salvar
+            </button> -->
+    </div>
+</form>

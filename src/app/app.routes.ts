@@ -5,7 +5,6 @@ import { LayoutComponent } from 'app/layout/layout.component';
 
 export const appRoutes: Route[] = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
-
     {
         path: '',
         canActivate: [AuthGuard],
@@ -17,6 +16,10 @@ export const appRoutes: Route[] = [
         children: [
             {
                 path: 'home',
+                loadChildren: () => import('app/modules/home/home.routes'),
+            },
+            {
+                path: 'customer',
                 loadChildren: () => import('app/modules/home/home.routes'),
             },
         ],

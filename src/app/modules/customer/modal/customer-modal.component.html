@@ -1,0 +1,72 @@
+<div class="flex flex-col flex-auto md:w-160 md:min-w-160 -m-6 ajuste-altura">
+    <ng-container>
+        <div class="m-4">
+            <!-- Title -->
+            <div>
+                <span class="w-full p-2 text-2xl">{{ data.action }} cliente</span>
+            </div>
+            <!-- Note -->
+            <div class="flex w-full py-5 px-2">
+                <form [formGroup]="form" class="container-fluid">
+
+                    <div class="form-control-group">
+                        <div class="row mb-3">
+                            <div class="col-12 col-sm-4">
+                                <label for="cnpj" class="label">
+                                    CNPJ
+                                </label>
+                                <input name="cnpj" id="cnpj" placeholder="CNPJ" type="text" maxlength="18"
+                                    class="form-control" formControlName="cnpj" mask="00.000.000/0000-00" />
+                            </div>
+                            <div class="col-12 col-sm-8">
+                                <label for="name" class="label">Nome</label>
+                                <input name="name" id="name" type="text" placeholder="Nome" class="form-control"
+                                    maxlength="100" formControlName="name" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-control-group">
+                        <div class="row mb-3">
+                            <div class="col-12 col-sm-6">
+                                <label for="responsible_cpf" class="label">CPF Responsável</label>
+                                <input name="responsible_cpf" id="responsible_cpf" placeholder="CPF Responsável"
+                                    type="text" maxlength="18" class="form-control" formControlName="responsible_cpf"
+                                    mask="00.000.000/0000-00" />
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <label for="responsible_name" class="label">Nome Responsável</label>
+                                <input name="responsible_name" id="responsible_name" type="text"
+                                    placeholder="Nome Responsável" class="form-control" maxlength="100"
+                                    formControlName="responsible_name" />
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12 col-sm-4">
+                                <label for="responsible_cellphone" class="label">Celular Responsável</label>
+                                <input name="responsible_cellphone" id="responsible_cellphone" type="text"
+                                    placeholder="Celular Responsável" class="form-control" maxlength="100"
+                                    formControlName="responsible_cellphone" />
+                            </div>
+                            <div class="col-12 col-sm-8">
+                                <label for="responsible_email" class="label">E-mail Responsável</label>
+                                <input name="responsible_email" id="responsible_email" type="text"
+                                    placeholder="E-mail Responsável" class="form-control" maxlength="100"
+                                    formControlName="responsible_email" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="button buttonCancel" (click)="cancel()">
+                            Cancelar
+                        </button>
+                        <button [disabled]="form.invalid || !form.dirty" type="button" class="button buttonSuccess"
+                            (click)="submit()">
+                            Cadastrar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </ng-container>
+</div>

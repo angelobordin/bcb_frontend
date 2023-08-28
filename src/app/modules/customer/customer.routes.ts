@@ -1,14 +1,14 @@
+import { inject } from '@angular/core';
 import { Routes } from '@angular/router';
-import { HomeComponent } from '../home/home.component';
-import { RegisterCustomerComponent } from './register/register-customer.component';
+import { CustomerListComponent } from './list/customer-list.component';
+import { CustomerService } from './list/customer.service';
 
 export default [
-    {
-        path: 'register',
-        component: RegisterCustomerComponent,
-    },
-    {
-        path: 'list',
-        component: HomeComponent,
-    },
+	{
+		path: '',
+		component: CustomerListComponent,
+		resolve: {
+			customers: () => inject(CustomerService).getCustomerList().subscribe(),
+		},
+	},
 ] as Routes;

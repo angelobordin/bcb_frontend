@@ -1,0 +1,60 @@
+<div class="flex flex-col flex-auto md:w-160 md:min-w-160 -m-6 ajuste-altura">
+    <ng-container>
+        <div class="m-4">
+            <!-- Title -->
+            <div>
+                <span class="w-full p-2 text-2xl">{{ data.action }} mensagem</span>
+            </div>
+            <!-- Note -->
+            <div class="flex w-full py-5 px-2">
+                <form [formGroup]="form" class="container-fluid">
+
+                    <div class="form-control-group">
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <label for="customer_id" class="label">
+                                    Cliente
+                                </label>
+                                <mat-select formControlName="customer_id" class="form-control">
+                                    <mat-option *ngFor="let customer of customers" [value]="customer.id">{{customer.cnpj
+                                        | mask: "00.000.000/0000-00"}} - {{ customer.name }}</mat-option>
+                                </mat-select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-control-group">
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <label for="value" class="label">Valor da Mensagem</label>
+                                <input name="value" id="value" type="text" placeholder="Valor da Mensagem"
+                                    class="form-control" maxlength="4" formControlName="value" mask="separator.2" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-control-group">
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <label for="text" class="label">Texto da Mensagem</label>
+                                <textarea name="text" id="text" rows="3" placeholder="Texto da Mensagem"
+                                    class="form-control" formControlName="text">
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="button buttonCancel" (click)="cancel()">
+                            Cancelar
+                        </button>
+                        <button [disabled]="form.invalid || !form.dirty" type="button" class="button buttonSuccess"
+                            (click)="submit()">
+                            Cadastrar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </ng-container>
+</div>

@@ -1,0 +1,43 @@
+.message-grid {
+	grid-template-columns: 48px 24px 96px 96px;
+
+	@screen sm {
+		grid-template-columns: 48px 24px 148px 148px;
+	}
+
+	@screen md {
+		grid-template-columns: 48px 24px 148px 148px 148px 148px;
+	}
+
+	@screen lg {
+		grid-template-columns: 48px 24px 148px 148px 148px 148px 124px 124px 72px;
+	}
+}
+
+.actionBtn:hover {
+	cursor: pointer;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+	border-bottom: 1px solid transparent;
+	border-top: 1px solid transparent;
+	cursor: pointer;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+	border-color: currentColor;
+}
+
+.demo-row-is-clicked {
+	font-weight: bold;
+}
+
+.buttons {
+	width: 100%;
+	display: flex;
+	justify-content: start;
+
+	.btnAdd {
+		margin-bottom: 10px;
+	}
+}

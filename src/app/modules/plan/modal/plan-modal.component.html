@@ -1,0 +1,65 @@
+<div class="flex flex-col flex-auto md:w-160 md:min-w-160 -m-6 ajuste-altura">
+    <ng-container>
+        <div class="m-4">
+            <!-- Title -->
+            <div>
+                <span class="w-full p-2 text-2xl">{{ data.action }} plano do cliente</span>
+            </div>
+            <!-- Note -->
+            <div class="flex w-full py-5 px-2">
+                <form [formGroup]="form" class="container-fluid">
+
+                    <div class="form-control-group">
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <label for="customer_id" class="label">
+                                    Cliente
+                                </label>
+                                <mat-select formControlName="customer_id" class="form-control">
+                                    <mat-option *ngFor="let customer of customers" [value]="customer.id">{{customer.cnpj
+                                        | mask: "00.000.000/0000-00"}} - {{ customer.name }}</mat-option>
+                                </mat-select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-control-group">
+                        <div class="row mb-3">
+                            <div class="col-12 col-sm-6">
+                                <label for="plan_type" class="label">Tipo do Plano</label>
+                                <mat-select formControlName="plan_type" class="form-control">
+                                    <mat-option [value]="'PREPAID'">Pré-pago</mat-option>
+                                    <mat-option [value]="'POSTPAID'">Pós-pago</mat-option>
+                                </mat-select>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div *ngIf="form.value['plan_type'] === 'PREPAID'">
+                                    <label for="credit" class="label">Crédito</label>
+                                    <input name="credit" id="credit" type="text" placeholder="Celular Responsável"
+                                        class="form-control" maxlength="100" formControlName="credit"
+                                        mask="separator.2" />
+                                </div>
+                                <div *ngIf="form.value['plan_type'] === 'POSTPAID'">
+                                    <label for="account_limit" class="label">Limite da conta</label>
+                                    <input name="account_limit" id="account_limit" type="text"
+                                        placeholder="Celular Responsável" class="form-control" maxlength="100"
+                                        formControlName="account_limit" mask="separator.2" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="button buttonCancel" (click)="cancel()">
+                            Cancelar
+                        </button>
+                        <button [disabled]="form.invalid || !form.dirty" type="button" class="button buttonSuccess"
+                            (click)="submit()">
+                            Cadastrar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </ng-container>
+</div>

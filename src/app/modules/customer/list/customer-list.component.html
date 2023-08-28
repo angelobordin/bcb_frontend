@@ -1,0 +1,131 @@
+<div class="sm:absolute sm:inset-0 flex flex-col flex-auto min-w-0 top-0">
+    <!-- HEADER -->
+    <div
+        class="relative top-0 flex flex-col sm:flex-row flex-0 sm:items-center sm:justify-between py-8 px-6 md:px-8 border-b">
+        <!-- ACTIONS -->
+        <div class="flex items-center">
+            <!-- ADD ADDRESS BUTTON -->
+            <button class="ml-4" mat-flat-button [color]="'primary'" (click)="registerCustomer()">
+                <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>
+                <span>Cliente</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="flex flex-auto">
+
+        <!-- ADDRESS LIST -->
+        <div class="flex flex-col flex-auto sm:mb-18 overflow-hidden sm:overflow-y-auto">
+            <ng-container *ngIf="(customers$ | async) as customers">
+                <ng-container *ngIf="customers.data.length > 0; else noCustomers">
+                    <div class="grid">
+
+                        <!-- HEADER -->
+                        <div class="customer-grid z-10 sticky top-0 grid gap-4 py-4 px-6 md:px-8 shadow text-md font-semibold text-secondary bg-gray-50 dark:bg-black dark:bg-opacity-5"
+                            matSort matSortDisableClear>
+                            <div class="flex justify-center">
+                                Ações
+                            </div>
+                            <div [mat-sort-header]="'id'">
+                                ID
+                            </div>
+                            <div [mat-sort-header]="'cnpj'">
+                                CNPJ
+                            </div>
+                            <div [mat-sort-header]="'name'">
+                                Nome
+                            </div>
+                            <div class="hidden lg:block" [mat-sort-header]="'responsible_name'">
+                                Nome Responsável
+                            </div>
+                            <div class="hidden lg:block" [mat-sort-header]="'responsible_email'">
+                                E-mail Responsável
+                            </div>
+                            <div class="hidden lg:block" [mat-sort-header]="'responsible_cpf'">
+                                CPF Responsável
+                            </div>
+                            <div class="hidden lg:block" [mat-sort-header]="'responsible_cellphone'">
+                                Celular Responsável
+                            </div>
+                            <div class="hidden lg:block" [mat-sort-header]="'created_at'">
+                                Criado em
+                            </div>
+                            <div class="hidden lg:block" [mat-sort-header]="'updated_at'">
+                                Atualizado em
+                            </div>
+                        </div>
+
+                        <!-- LIST - ROWS -->
+                        <ng-container *ngIf="(customers$ | async) as customers">
+                            <ng-container *ngFor="let customer of customers.data; trackBy: trackByFn">
+                                <div class="customer-grid grid items-center gap-4 py-3 px-6 md:px-8 border-b">
+
+                                    <div class="flex justify-between">
+                                        <mat-icon [svgIcon]="'heroicons_outline:pencil'" class="actionBtn"
+                                            (click)="editCustomer(customer)"></mat-icon>
+                                        <mat-icon [svgIcon]="'heroicons_outline:trash'" class="actionBtn"
+                                            (click)="deleteCustomer(customer)"></mat-icon>
+                                    </div>
+
+                                    <!-- ID -->
+                                    <div>
+                                        {{customer.id}}
+                                    </div>
+
+                                    <!-- CNPJ -->
+                                    <div>
+                                        {{customer.cnpj | mask: "00.000.000/0000-00"}}
+                                    </div>
+
+                                    <!-- NOME -->
+                                    <div>
+                                        {{customer.name}}
+                                    </div>
+
+                                    <!-- RESPONSIBLE NAME -->
+                                    <div class="hidden lg:block">
+                                        {{customer.responsible_name}}
+                                    </div>
+
+                                    <!-- RESPONSIBLE EMAIL -->
+                                    <div class="hidden lg:block">
+                                        {{customer.responsible_email}}
+                                    </div>
+
+                                    <!-- RESPONSIBLE CNPJ -->
+                                    <div class="hidden lg:block">
+                                        {{customer.responsible_cpf | mask: "000.000.000-00"}}
+                                    </div>
+
+                                    <!-- RESPONSIBLE CELLPHONE -->
+                                    <div class="hidden lg:block">
+                                        {{customer.responsible_cellphone | mask: "(00) 0 0000-0000"}}
+                                    </div>
+
+                                    <!-- CREATED AT -->
+                                    <div class="hidden lg:block">
+                                        {{formatDate(customer.created_at)}}
+                                    </div>
+
+                                    <!-- UPDATED AT -->
+                                    <div class="hidden lg:block">
+                                        {{formatDate(customer.updated_at)}}
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+
+                    </div>
+                </ng-container>
+            </ng-container>
+
+            <ng-template #noCustomers>
+                <div class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center">
+                    Não há clientes cadastrados!
+                </div>
+            </ng-template>
+        </div>
+
+    </div>
+</div>

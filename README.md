@@ -1,27 +1,55 @@
-# Fuse - Admin template and Starter project for Angular
+<h1>BigChatBrasil Frontend</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli)
+<h2>Descrição</h2>
+Projeto frontend para um app para enviar mensagens<br>
 
-## Development server
+<h2>Funcionalidades & endpoints</h2>
+<h3>Implementadas :heavy_check_mark:</h3>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Cadastro de Clientes
+- Edição de Clientes
+- Exclusão de Clientes
+- Atualização de dados dos Cliente<br>
 
-## Code scaffolding
+- Cadastro de Planos de envio de mensagens por cliente;
+- Edição de Planos
+- Exclusão de Planos
+- Atualização dos Planos dos Cliente<br>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Cadastro de Mensagens
+- Edição de Mensagens
+- Exclusão de Mensagens
+- Atualização de Mensagens
 
-## Build
+<h2>Rodando o projeto 🛠️</h2>
+<h3>Pré-Requisitos</h3>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+⚠️ [Node](https://nodejs.org/en/)<br>
+⚠️ [VS Code](https://code.visualstudio.com/Download)<br>
 
-## Running unit tests
+Após baixar o projeto no seu dispositivo, você pode abri-lo no VS Code.<br>
+Para isso abra o VS Code em seu dispositivo, após clique em:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<h3>VS Code</h3>
 
-## Running end-to-end tests
+- **File >> Open Folder...** ou digite **Ctrl+K** / **Ctrl+O**;
+- Abra o terminal em **Terminal >> New Terminal**;
+- Digite **npm install** para realizar a instalação das dependências do projeto;
+- Logo em seguida escreva em seu console o comando **npm run start**, que seu projeto iniciará na porta 4200 (Pode ser alterada).
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice.  To use this command, you need to first add a package that implements end-to-end testing capabilities.
+<h2>Tecnologias Utilizadas</h2>
 
-## Further help
+<ul>
+  <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-plain.svg" width="20" height="20"/><b> Visual Studio Code</b></li>
+  <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" width="20" height="20"/><b> Node.JS</b></li>
+  <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="20" height="20"/><b> TypeScript</b></li>
+  <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="20" height="20"/><b> Git</b></li>
+  <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" width="20" height="20"/><b>Angular 16</b></li>
+    <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" width="20" height="20"/><b>Tailwind</b></li>
+    <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" width="20" height="20"/><b>Bootstrap</b></li>
+</ul>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Autores
+
+| [<img src="https://avatars.githubusercontent.com/u/70332789?s=400&u=c6b947894c97e0e941f64aafeb22719ff49589ac&v=4" width=115><br><sub>Angelo Bordin</sub>](https://github.com/angelobordin) |
+| :---: |
